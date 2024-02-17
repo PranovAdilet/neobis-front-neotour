@@ -1,0 +1,51 @@
+.recommended{
+  padding: 132px 0;
+
+  &__title{
+    color: var(--Black, #141414);
+    font-size: 48px;
+    font-weight: 700;
+
+    margin-bottom: 72px;
+  }
+
+  &__row{
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+  &__item{
+    position: relative;
+    width: calc(25% - 20px);
+
+    &-img{
+      width: 100%;
+    }
+    &-title{
+      color: var(--White, #FFF);
+      font-size: 20px;
+      font-weight: 700;
+
+      position: absolute;
+      bottom: 18px;
+      left: 16px;
+      z-index: 2;
+
+    }
+    &-bottom{
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+
+      z-index: 1;
+
+      width: 100%;
+      height: 50px;
+
+      border-radius: 0 0 14px 14px;
+
+      background: #A0A0A0;
+      mix-blend-mode: multiply;
+    }
+  }
+}

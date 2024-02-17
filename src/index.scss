@@ -1,0 +1,26 @@
+@import "./styles/trips";
+@import "./styles/discover";
+@import "./styles/recommended";
+@import "./styles/description";
+@import "./styles/popup";
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+
+html{
+  font-family: 'Satoshi',sans-serif;
+  font-style: normal;
+  line-height: normal;
+  font-size: 16px;
+}
+
+.container{
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
