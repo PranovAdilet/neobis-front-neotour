@@ -419,9 +419,13 @@
 }
 .popup__input {
   width: 100%;
-  padding: 10px 20px;
+  padding: 13px 20px;
   border-radius: 100px;
   border: 1px solid var(--Input-gray, #636363);
+  color: var(--Gray, #888);
+  font-size: 18px;
+  font-weight: 400;
+  outline: none;
 }
 .popup__top {
   display: flex;
@@ -499,10 +503,29 @@
   font-size: 24px;
   font-weight: 500;
   border-radius: 28px;
-  background: var(--Inactive, #B4B0DA);
+  background: var(--Primary, #6A62B7);
   border: none;
   outline: none;
   cursor: pointer;
+}
+.popup__btn:disabled {
+  background: var(--Inactive, #B4B0DA);
+}
+.popup__error {
+  color: red;
+  margin: 5px 0 0 17px;
+}
+
+.PhoneInputInput {
+  border: none;
+  outline: none;
+  color: var(--Gray, #888);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.PhoneInput {
+  column-gap: 5px;
 }
 
 * {
