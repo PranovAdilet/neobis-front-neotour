@@ -110,6 +110,11 @@
 
       margin: 45px 0 8px;
     }
+    &-avatar{
+      width: 24px;
+      height: 24px;
+      border-radius: 24px;
+    }
   }
   &__btn{
     color: var(--White, #FFF);
@@ -137,7 +142,7 @@
     background: #FFFFFF;
 
     position: absolute;
-    top: 410px;
+    top: 490px;
     left: 0;
     width: 100%;
   }

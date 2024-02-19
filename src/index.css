@@ -91,6 +91,21 @@
   font-weight: 400;
   cursor: pointer;
 }
+.discover__nav-item_active {
+  color: var(--Primary, #6A62B7);
+  transform: scale(1.02);
+}
+.discover__nav-item_active::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  transform: translateX(-50%);
+  bottom: -20px;
+  left: 50%;
+  background: #6A62B7;
+  border-radius: 50%;
+}
 .discover__nav-item:hover {
   color: var(--Primary, #6A62B7);
   transform: scale(1.02);
@@ -111,12 +126,14 @@
   gap: 25px;
 }
 .discover__item {
-  width: 384px;
   position: relative;
   cursor: pointer;
 }
 .discover__item-img {
-  width: 100%;
+  max-width: 384px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
 }
 .discover__item-title {
   color: #FFF;
@@ -134,7 +151,7 @@
   z-index: 1;
   width: 100%;
   height: 70px;
-  border-radius: 0 0 21% 21%;
+  border-radius: 0 0 20px 20px;
   background: #A0A0A0;
   mix-blend-mode: multiply;
 }
@@ -229,6 +246,9 @@
 }
 .recommended__item-img {
   width: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  height: 280px;
 }
 .recommended__item-title {
   color: var(--White, #FFF);
@@ -348,6 +368,11 @@
   font-weight: 700;
   margin: 45px 0 8px;
 }
+.description__reviews-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 24px;
+}
 .description__btn {
   color: var(--White, #FFF);
   font-size: 24px;
@@ -369,7 +394,7 @@
   border-radius: 48px 48px 0 0;
   background: #FFFFFF;
   position: absolute;
-  top: 410px;
+  top: 490px;
   left: 0;
   width: 100%;
 }
@@ -526,6 +551,61 @@
 
 .PhoneInput {
   column-gap: 5px;
+}
+
+.swiper-button-prev:after {
+  position: absolute;
+  left: 80%;
+  top: -50%;
+  padding: 27px 22px;
+  font-size: 20px;
+  color: #ffffff;
+  backdrop-filter: blur(13px);
+  transition: 0.2s;
+  background: hsla(258, 4%, 55%, 0.32);
+  border-radius: 10px;
+}
+
+.swiper-button-prev:hover::after {
+  backdrop-filter: blur(13px);
+  background: hsla(258, 4%, 55%, 0.32);
+  transition: 0.2s;
+  border-radius: 10px;
+  transform: scale(120%);
+}
+
+.swiper-button-next:after {
+  position: absolute;
+  right: 100%;
+  top: -50%;
+  color: #ffffff;
+  padding: 27px 22px;
+  font-size: 20px;
+  backdrop-filter: blur(13px);
+  transition: 0.2s;
+  background: hsla(258, 4%, 55%, 0.32);
+  border-radius: 10px;
+}
+
+.swiper-button-next:hover::after {
+  backdrop-filter: blur(13px);
+  background: hsla(258, 4%, 55%, 0.32);
+  transform: scale(120%);
+  transition: 0.2s;
+  border-radius: 10px;
+}
+
+.swiper-button-next {
+  display: block !important;
+}
+
+.swiper-button-prev {
+  display: block !important;
+}
+
+.swiper-slide {
+  display: flex !important;
+  column-gap: 24px;
 }
 
 * {
