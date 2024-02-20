@@ -46,7 +46,7 @@ const Description = () => {
                                     <h2 className="description__title">{data.name}</h2>
                                     <div className="description__content-location">
                                         <span className="description__icon"><CiLocationOn/></span>
-                                        <p className="description__country">{data.locality}</p>
+                                        <p className="description__country">{data.locality}, {data.country}</p>
                                     </div>
                                 </div>
                                 <div className="description__content-block">

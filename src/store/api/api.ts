@@ -12,7 +12,8 @@ export const api = createApi({
     tagTypes:['api'],
     baseQuery: fetchBaseQuery(
         {
-            baseUrl: API_URL
+            baseUrl: API_URL,
+            mode: 'cors'
         }),
     endpoints: (builder) => ({
         getDiscoverTours: builder.query<IData, IQuery>({

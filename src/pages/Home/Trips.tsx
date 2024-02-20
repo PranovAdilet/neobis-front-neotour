@@ -3,6 +3,11 @@ import trips from '../assets/images/trips.png'
 
 
 const Trips = () => {
+
+    const scrollTo = () => {
+        window.scroll(0, 700)
+    }
+
     return (
         <section className="trips">
             <div className="container">
@@ -13,7 +18,7 @@ const Trips = () => {
                            and amazing sightseeing on the mountains.
                            Enjoy the best experience with us!
                        </p>
-                       <div className="trips__left-bottom">
+                       <div onClick={scrollTo} className="trips__left-bottom">
                            <p className="trips__text">Let’s Go!</p>
                            <div className="trips__arrow"></div>
                        </div>

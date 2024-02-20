@@ -54,7 +54,7 @@ const Popup = ({ setPopup }: IPopup) => {
         setComment('')
     }
 
-    const isValidForm = tel && isValidPhoneNumber(tel) && comment.length >= 3;
+    const isValidForm = tel && isValidPhoneNumber(tel)
 
     return (
         <div className="overlay">
@@ -75,8 +75,7 @@ const Popup = ({ setPopup }: IPopup) => {
                         <label className="popup__label">
                             <p className="popup__text">Commentaries to trip</p>
                             <input
-                                minLength={3}
-                                required={true}
+                                maxLength={300}
                                 placeholder="Write your wishes to trip..."
                                 className="popup__input"
                                 type="text"

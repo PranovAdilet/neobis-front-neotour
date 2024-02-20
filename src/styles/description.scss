@@ -25,10 +25,14 @@
 
       z-index: 10;
       cursor: pointer;
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 1));
+
       &-text{
         color: var(--White, #FFF);
         font-size: 18px;
         font-weight: 500;
+
+
       }
       &-btn{
         position: relative;
@@ -36,7 +40,6 @@
 
         border: 1px solid #FFFFFF;
         stroke: var(--Gray, #888);
-
         &::before{
           content: "";
           position: absolute;

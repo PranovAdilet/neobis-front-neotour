@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import 'react-phone-number-input/style.css';
 import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
 
@@ -18,11 +18,8 @@ const Input = ({...props} : IProps) => {
     const handleBlur = () => {
         if (props.tel && !isValidPhoneNumber(props.tel)){
             props.setError('Invalid phone number format');
-        } else {
-            props.setError('');
         }
     }
-
 
     return (
         <div>

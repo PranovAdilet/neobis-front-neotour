@@ -12,6 +12,13 @@ const Recommended = () => {
         return <div>{`Error: ${error}`}</div>;
     }
 
+    const nameLength = (name : string) => {
+        if (name.length > 28){
+            return name.slice(0, 23) + '...'
+        }
+        return name
+    }
+
     return (
         <section className="recommended">
             <div className="container">
@@ -22,7 +29,7 @@ const Recommended = () => {
                         data && data.content.map(item => (
                             <Link to={`/descr/${item.id}`} key={item.id} className="recommended__item">
                                 <img className="recommended__item-img" src={item.imageUrl} alt=""/>
-                                <h4 className="recommended__item-title">{item.name}</h4>
+                                <h4 className="recommended__item-title">{nameLength(item.name)}</h4>
                                 <div className="recommended__item-bottom"></div>
                             </Link>
                         ))

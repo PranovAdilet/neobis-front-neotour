@@ -9,7 +9,7 @@ import {categories} from "../../utils/categories";
 
 const Discover = () => {
     const [category, setCategory] = useState<string>('popular')
-    const [page, setPage] = useState(3)
+    const [page, setPage] = useState(0)
 
 
     const { data, isLoading, error } = useGetDiscoverToursQuery({category, page})
@@ -44,11 +44,20 @@ const Discover = () => {
 
     }
 
-
     const handlerCategory = (item: string) => {
         setPage(0)
         setCategory(item)
     }
+
+    const nameLength = (name : string) => {
+        if (name.length > 24){
+            return name.slice(0, 22) + '...'
+        }
+        return name
+    }
+
+
+    console.log(data)
 
     return (
         <section className="discover">
@@ -77,7 +86,7 @@ const Discover = () => {
                             <Link key={item.id} to={`/descr/${item.id}`} className="discover__item">
                                 <img className="discover__item-img" src={`${item.imageUrl}`} alt=""/>
                                 <div className="discover__item-bottom"></div>
-                                <h4 className="discover__item-title">{item.name}</h4>
+                                <h4 className="discover__item-title">{nameLength(item.name)}</h4>
                             </Link>
                         )
                     }
