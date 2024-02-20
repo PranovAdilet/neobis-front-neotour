@@ -1,23 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useGetRecommendedToursQuery} from "../../store/api/api";
-import {Link} from "react-router-dom";
+import RecommendedCard from "../../components/RecommendedCard/RecommendedCard";
+import {getCurrentMonth} from "../../utils/currentMonth";
 
 const Recommended = () => {
+    const currentMonth = getCurrentMonth()
+    const [month] = useState<string>(currentMonth)
 
-    const {data, error, isLoading} = useGetRecommendedToursQuery('2')
 
-    if (isLoading) return <div>Loading...</div>
+    const {data, error, isLoading} = useGetRecommendedToursQuery(month)
 
-    if (error) {
-        return <div>{`Error: ${error}`}</div>;
-    }
+    console.log(data)
 
-    const nameLength = (name : string) => {
-        if (name.length > 28){
-            return name.slice(0, 23) + '...'
-        }
-        return name
-    }
 
     return (
         <section className="recommended">
@@ -27,12 +21,16 @@ const Recommended = () => {
                 <div className="recommended__row">
                     {
                         data && data.content.map(item => (
-                            <Link to={`/descr/${item.id}`} key={item.id} className="recommended__item">
-                                <img className="recommended__item-img" src={item.imageUrl} alt=""/>
-                                <h4 className="recommended__item-title">{nameLength(item.name)}</h4>
-                                <div className="recommended__item-bottom"></div>
-                            </Link>
+                            <RecommendedCard key={item.id} item={item}/>
                         ))
+                    }
+
+                    {
+                        isLoading && <div>...Loading</div>
+                    }
+
+                    {
+                        error && <div>{`Error: ${error}`}</div>
                     }
                 </div>
             </div>

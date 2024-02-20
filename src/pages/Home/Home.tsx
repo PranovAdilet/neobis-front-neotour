@@ -5,11 +5,11 @@ import Recommended from "./Recommended";
 
 const Home = () => {
     return (
-        <section className="home">
+        <main className="home">
             <Trips/>
             <Discover/>
             <Recommended/>
-        </section>
+        </main>
     );
 };
 
