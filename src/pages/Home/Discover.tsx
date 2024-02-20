@@ -1,13 +1,9 @@
-import React, {useRef, useState} from 'react';
+import React, { useState} from 'react';
 import {Link} from "react-router-dom";
 import {useGetDiscoverToursQuery} from '../../store/api/api';
 import {IDiscoverTour} from "../../interface/app.interface";
 import {categories} from "../../utils/categories";
 
-import {Pagination, Navigation} from "swiper/modules"
-import SwiperCore, { Swiper, SwiperSlide } from 'swiper/react';
-import "swiper/css";
-import "swiper/css/navigation"
 
 
 
@@ -18,23 +14,34 @@ const Discover = () => {
 
     const { data, isLoading, error } = useGetDiscoverToursQuery({category, page})
 
-    if (isLoading) return <div>...Loading</div>
+
 
     const handlerPagePlus = () => {
-        if (data && page < data.totalPages - 1){
-            setPage(prevState => prevState + 1)
-        }else {
-            setPage(0)
+        if (data && page < data.totalPages - 1) {
+            setPage(prevPage => prevPage + 1)
         }
     }
     const handlerPageMinus = () => {
-        if (page > 0){
-            setPage(prevState => prevState - 1)
-        }else {
-            if (data){
-                setPage(data.totalPages - 1)
-            }
+        if (page > 0) {
+            setPage(prevPage => prevPage - 1);
         }
+    }
+
+    const btnsColorRight = () => {
+        if (data && page === data.totalPages - 1){
+            return "1px solid red"
+        }else {
+            return "1px solid #888"
+        }
+
+    }
+    const btnsColorLeft = () => {
+        if (page === 0){
+            return "1px solid red"
+        }else {
+            return "1px solid #888"
+        }
+
     }
 
 
@@ -49,8 +56,8 @@ const Discover = () => {
                 <div className="discover__top">
                     <h2 className="discover__title">Discover</h2>
                     <div className="discover__btns">
-                        <button onClick={() => handlerPageMinus()} className="discover__btns-left"><div className="discover__arrow-left"></div></button>
-                        <button onClick={() => handlerPagePlus()} className="discover__btns-right"><div className="discover__arrow-right"></div></button>
+                        <button style={{border: btnsColorLeft()}} onClick={handlerPageMinus} className="discover__btns-left"><div className="discover__arrow-left"></div></button>
+                        <button style={{border: btnsColorRight()}} onClick={handlerPagePlus} className="discover__btns-right"><div className="discover__arrow-right"></div></button>
                     </div>
                 </div>
                 <nav className="discover__nav">
@@ -74,7 +81,12 @@ const Discover = () => {
                             </Link>
                         )
                     }
-
+                    {
+                        isLoading && <div>...Loading</div>
+                    }
+                    {
+                        error && <div>{`Error: ${error}`}</div>
+                    }
 
                 </div>
             </div>

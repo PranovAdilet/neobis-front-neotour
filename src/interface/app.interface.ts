@@ -34,3 +34,11 @@ export interface IData{
     totalPages: number
     totalElements: number
 }
+
+export interface IPostData{
+    phoneNumber: string
+    tourId: number
+    peopleCount: number
+    comment: string
+
+}

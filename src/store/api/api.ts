@@ -1,12 +1,12 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {IData, IDescriptionTour, IDiscoverTour} from "../../interface/app.interface";
+import {IData, IDescriptionTour, IPostData} from "../../interface/app.interface";
 
 interface IQuery{
     category: string
     page: number
 }
 
-const API_URL = `https://neo-tour-production.up.railway.app/v1/tours`
+const API_URL = `https://neo-tour-production.up.railway.app/v1`
 export const api = createApi({
     reducerPath: "api",
     tagTypes:['api'],
@@ -16,15 +16,23 @@ export const api = createApi({
         }),
     endpoints: (builder) => ({
         getDiscoverTours: builder.query<IData, IQuery>({
-            query: ({category, page}) => `?param=${category}&page=${page}`
+            query: ({category, page}) => `/tours?param=${category}&page=${page}`
         }),
         getRecommendedTours: builder.query<IData, string>({
-            query: (month) => `/recommended/${month}`
+            query: (month) => `/tours/recommended/${month}`
         }),
         getTour: builder.query<IDescriptionTour, string>({
-            query: (id) => `/${id}`
+            query: (id) => `/tours/${id}`
         }),
+        postBooking: builder.mutation<IPostData, IPostData>({
+            query: (data) => ({
+                url: '/bookings',
+                method: 'POST',
+                body: data
+            })
+        })
+
     })
 })
 
-export const {useGetDiscoverToursQuery, useGetRecommendedToursQuery, useGetTourQuery} = api
+export const {useGetDiscoverToursQuery, useGetRecommendedToursQuery, useGetTourQuery, usePostBookingMutation} = api

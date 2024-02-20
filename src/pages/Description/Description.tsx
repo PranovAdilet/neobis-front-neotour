@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import avatar from '../assets/images/avatar.png'
-import descr from '../assets/images/descr.png'
 import { CiLocationOn } from "react-icons/ci";
 import Popup from "../../components/Popup/Popup";
 import {Link, useParams} from "react-router-dom";
-import {useGetDiscoverToursQuery, useGetTourQuery} from "../../store/api/api";
+import {useGetTourQuery} from "../../store/api/api";
+import SwiperImages from "../../components/SwiperImages/SwiperImages";
+
 
 const Description = () => {
 
@@ -21,13 +21,18 @@ const Description = () => {
     const handlerPopup = () => {
         setPopup((prev) => !prev)
     }
-    console.log(data)
+
+    if (isLoading) return <div>...Loading</div>
+
+    if (error) {
+        return <div>{`Error: ${error}`}</div>;
+    }
 
     return (
         <>
             <section className="description">
                 <div className="description__top">
-                    <img className="description__img" src={data && data!.images[0]} alt=""/>
+                        <SwiperImages images={data?.images}/>
                         <Link to="/" className="description__top-content">
                             <button className="description__top-content-btn"></button>
                             <h3 className="description__top-content-text">Go back</h3>
