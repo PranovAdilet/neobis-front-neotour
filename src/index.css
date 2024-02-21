@@ -163,10 +163,8 @@
 .discover__btns-left {
   border: 1px solid #888;
   border-radius: 50%;
-  background: #FFFFFF;
   padding: 5px 12px;
   outline: none;
-  cursor: pointer;
 }
 .discover__btns-left:hover {
   background: var(--Inactive, #B4B0DA) !important;
@@ -174,10 +172,8 @@
 .discover__btns-right {
   border: 1px solid #888;
   border-radius: 50%;
-  background: #FFFFFF;
   padding: 5px 12px;
   outline: none;
-  cursor: pointer;
 }
 .discover__btns-right:hover {
   background: var(--Inactive, #B4B0DA) !important;
@@ -232,6 +228,18 @@
   border: 1px solid black;
   transform: rotate(40deg);
 }
+.discover__skeleton {
+  max-width: 384px;
+  width: 384px;
+  border-radius: 20px;
+}
+.discover__skeleton-box {
+  display: flex;
+  gap: 25px;
+}
+.discover__skeleton-card {
+  border-radius: 20px !important;
+}
 
 .recommended {
   padding: 132px 0;
@@ -240,12 +248,20 @@
   color: var(--Black, #141414);
   font-size: 48px;
   font-weight: 700;
-  margin-bottom: 72px;
+}
+.recommended__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .recommended__row {
   display: flex;
   gap: 25px;
   flex-wrap: wrap;
+  margin-top: 72px;
+}
+.recommended__select {
+  min-width: 95px;
 }
 .recommended__item {
   position: relative;
@@ -276,6 +292,19 @@
   border-radius: 0 0 14px 14px;
   background: #A0A0A0;
   mix-blend-mode: multiply;
+}
+.recommended__skeleton {
+  max-width: 384px;
+  height: 300px;
+  width: calc(25% - 20px);
+  border-radius: 20px;
+}
+.recommended__skeleton-box {
+  display: flex;
+  gap: 25px;
+}
+.recommended__skeleton-card {
+  border-radius: 20px !important;
 }
 
 .description {
@@ -382,6 +411,25 @@
   height: 24px;
   border-radius: 24px;
 }
+.description__reviews-btn {
+  max-width: 150px;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 5px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #6A62B7;
+  font-weight: 600;
+  cursor: pointer;
+}
+.description__reviews-icon {
+  font-size: 20px;
+  color: #6A62B7;
+}
 .description__btn {
   color: var(--White, #FFF);
   font-size: 24px;
@@ -403,10 +451,28 @@
   border-radius: 48px 48px 0 0;
   background: #FFFFFF;
   position: absolute;
-  top: 500px;
+  top: 530px;
   left: 0;
   width: 100%;
   z-index: 9;
+}
+
+.image-gallery-play-button {
+  display: none;
+}
+
+.image-gallery-fullscreen-button {
+  bottom: 100px !important;
+  right: 10px !important;
+}
+
+.image-gallery-image {
+  object-fit: cover !important;
+}
+
+.image-gallery-thumbnail .image-gallery-thumbnail-image {
+  height: 60px;
+  object-fit: cover;
 }
 
 .overlay {

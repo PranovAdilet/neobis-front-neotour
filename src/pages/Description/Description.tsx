@@ -4,6 +4,7 @@ import Popup from "../../components/Popup/Popup";
 import {Link, useParams} from "react-router-dom";
 import {useGetTourQuery} from "../../store/api/api";
 import SwiperImages from "../../components/SwiperImages/SwiperImages";
+import Reviews from "../../components/Reviews/Reviews";
 
 
 const Description = () => {
@@ -20,12 +21,6 @@ const Description = () => {
 
     const handlerPopup = () => {
         setPopup((prev) => !prev)
-    }
-
-    if (isLoading) return <div>...Loading</div>
-
-    if (error) {
-        return <div>{`Error: ${error}`}</div>;
     }
 
     return (
@@ -53,23 +48,16 @@ const Description = () => {
                                     <h4 className="description__subtitle">Description</h4>
                                     <p className="description__text">{data.description}</p>
                                 </div>
-                                <div className="description__reviews-content">
-                                    <h4 className="description__reviews-subtitle">Reviews</h4>
-                                    {
-                                        data.reviewDtoList.map((item, idx) => (
-                                            <div key={idx} className="description__reviews-block">
-                                                <div className="description__reviews">
-                                                    <img className="description__reviews-avatar" src={item.imageUrl} alt=""/>
-                                                    <p className="description__reviews-name">{item.author}</p>
-                                                </div>
-                                                <p className="description__reviews-comment">{item.text}</p>
-                                            </div>
-                                        ))
-                                    }
-
-                                </div>
+                                <Reviews data={data}/>
                                 <button onClick={handlerPopup} className="description__btn">Book now</button>
                             </div>
+                        }
+                        {
+                            isLoading && <p>...Loading</p>
+                        }
+
+                        {
+                            error && <div>{`Error: ${error}`}</div>
                         }
                     </div>
                 </div>

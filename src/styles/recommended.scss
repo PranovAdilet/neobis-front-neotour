@@ -5,14 +5,21 @@
     color: var(--Black, #141414);
     font-size: 48px;
     font-weight: 700;
-
-    margin-bottom: 72px;
   }
-
+  &__top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   &__row{
     display: flex;
     gap: 25px;
     flex-wrap: wrap;
+
+    margin-top: 72px;
+  }
+  &__select{
+    min-width: 95px;
   }
   &__item{
     position: relative;
@@ -51,6 +58,21 @@
 
       background: #A0A0A0;
       mix-blend-mode: multiply;
+    }
+  }
+  &__skeleton{
+    max-width: 384px;
+    height: 300px;
+    width: calc(25% - 20px);
+
+    border-radius: 20px;
+    &-box{
+      display: flex;
+      gap: 25px;
+
+    }
+    &-card{
+      border-radius: 20px !important;
     }
   }
 }

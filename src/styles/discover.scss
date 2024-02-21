@@ -123,11 +123,11 @@
     &-left{
       border: 1px solid #888;
       border-radius: 50%;
-      background: #FFFFFF;
+
       padding: 5px 12px;
       outline: none;
 
-      cursor: pointer;
+
 
       &:hover{
         background: var(--Inactive, #B4B0DA) !important;
@@ -137,11 +137,11 @@
     &-right{
       border: 1px solid #888;
       border-radius: 50%;
-      background: #FFFFFF;
+
       padding: 5px 12px;
       outline: none;
 
-      cursor: pointer;
+
 
       &:hover{
         background: var(--Inactive, #B4B0DA) !important;
@@ -213,6 +213,21 @@
 
         transform: rotate(40deg);
       }
+    }
+  }
+  &__skeleton{
+    max-width: 384px;
+
+    width: 384px;
+
+    border-radius: 20px;
+    &-box{
+      display: flex;
+      gap: 25px;
+
+    }
+    &-card{
+      border-radius: 20px !important;
     }
   }
 }

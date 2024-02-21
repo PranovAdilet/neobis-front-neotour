@@ -4,6 +4,7 @@ import {IDiscoverTour} from "../../interface/app.interface";
 import {categories} from "../../utils/categories";
 import DiscoverCard from "../../components/DiscoverCard/DiscoverCard";
 import DiscoverBtns from "../../components/DiscoverBtns/DiscoverBtns";
+import SkeletonCards from "../../components/SkeletonCards/SkeletonCards";
 
 
 const Discover = () => {
@@ -41,11 +42,12 @@ const Discover = () => {
                 <div className="discover__row">
                     {
                         data && data.content.map((item : IDiscoverTour) =>
-                           <DiscoverCard key={item.id} item={item}/>
+                            <DiscoverCard key={item.id} item={item}/>
                         )
                     }
+
                     {
-                        isLoading && <div>...Loading</div>
+                        isLoading && <SkeletonCards classname={'discover'} count={3}/>
                     }
 
                     {

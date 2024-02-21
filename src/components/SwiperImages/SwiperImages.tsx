@@ -2,38 +2,27 @@ import React from 'react';
 import "swiper/css";
 import "swiper/css/navigation"
 import "swiper/css/bundle";
-import {Swiper, SwiperSlide} from "swiper/react";
-import {Autoplay, Navigation} from "swiper/modules"
+import ImageGallery, {ReactImageGalleryItem} from 'react-image-gallery';
+import 'react-image-gallery/styles/css/image-gallery.css';
+
+
 
 interface IImages{
     images: string[] | undefined
 }
 
 const SwiperImages = ({images} : IImages) => {
+    const images2: ReactImageGalleryItem[] = (images || [])?.map(item => {
+        return  {
+            original: item,
+            thumbnail: item
+        }
+    })
+
+
     return (
         <>
-            <Swiper
-                loop={true}
-                slidesPerView={1}
-                spaceBetween={30}
-                navigation={true}
-                autoplay={{
-                    delay: 10000,
-                    disableOnInteraction: false,
-                    stopOnLastSlide: false,
-                    pauseOnMouseEnter: true
-                }}
-                modules={[Autoplay, Navigation]}
-                speed={500}
-                className="sliderSwiper"
-            >
-                {
-                    images?.map((img, idx) => <SwiperSlide key={idx}>
-                        <img className="description__img" src={img} alt=""/>
-                    </SwiperSlide>)
-                }
-            </Swiper>
-
+            <ImageGallery items={images2}/>
         </>
 
     );

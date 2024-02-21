@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction} from 'react';
+import React, {CSSProperties, Dispatch, SetStateAction} from 'react';
 import {IData} from "../../interface/app.interface";
 
 
@@ -23,24 +23,38 @@ const DiscoverBtns = ({data, page, setPage}: IProps) => {
 
     const btnsColorRight = () => {
         if (data && page === data.totalPages - 1){
-            return "1px solid red"
+            return {
+                background: "#f6f5f5",
+                cursor: "auto",
+                pointerEvents: "none"
+            } as CSSProperties
         }else {
-            return "1px solid #888"
+            return {
+                background: "#FFFFFF",
+                cursor: "pointer"
+            }
         }
 
     }
     const btnsColorLeft = () => {
         if (page === 0){
-            return "1px solid red"
+            return {
+                background: "#f6f5f5",
+                cursor: "auto",
+                pointerEvents: "none"
+            } as CSSProperties;
         }else {
-            return "1px solid #888"
+            return {
+                background: "#FFFFFF",
+                cursor: "pointer"
+            }
         }
     }
 
     return (
         <div className="discover__btns">
-            <button style={{border: btnsColorLeft()}} onClick={handlerPageMinus} className="discover__btns-left"><div className="discover__arrow-left"></div></button>
-            <button style={{border: btnsColorRight()}} onClick={handlerPagePlus} className="discover__btns-right"><div className="discover__arrow-right"></div></button>
+            <button style={btnsColorLeft()} onClick={handlerPageMinus} className="discover__btns-left"><div className="discover__arrow-left"></div></button>
+            <button style={btnsColorRight()} onClick={handlerPagePlus} className="discover__btns-right"><div className="discover__arrow-right"></div></button>
         </div>
     );
 };
