@@ -20,7 +20,7 @@ export const api = createApi({
             query: ({category, page}) => `/tours?param=${category}&page=${page}`
         }),
         getRecommendedTours: builder.query<IData, string>({
-            query: (month) => `/tours?param=recommended&${month}`
+            query: (month) => `/tours?param=recommended&month=${month}`
         }),
         getTour: builder.query<IDescriptionTour, string>({
             query: (id) => `/tours/${id}`

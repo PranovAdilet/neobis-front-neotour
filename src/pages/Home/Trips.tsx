@@ -1,5 +1,5 @@
 import React from 'react';
-import trips from '../assets/images/trips.png'
+import trips from '../../assets/images/trips.png'
 
 
 const Trips = () => {

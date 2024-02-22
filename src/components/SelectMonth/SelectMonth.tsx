@@ -1,12 +1,13 @@
-import React from 'react';
+import React, {Dispatch, SetStateAction} from 'react';
 import {FormControl, InputLabel, MenuItem, Select, SelectChangeEvent} from "@mui/material";
-import {getCurrentMonth} from "../../utils/currentMonth";
 
-const SelectMonth = () => {
 
-    const currentMonth = getCurrentMonth()
+type IProps = {
+    month: string
+    setMonth : Dispatch<SetStateAction<string>>
+}
 
-    const [month, setMonth] = React.useState(currentMonth);
+const SelectMonth = ({month, setMonth} : IProps) => {
 
     const handleChange = (event: SelectChangeEvent) => {
         setMonth(event.target.value as string);

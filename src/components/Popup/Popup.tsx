@@ -6,6 +6,7 @@ import { isValidPhoneNumber } from "react-phone-number-input";
 import { usePostBookingMutation } from "../../store/api/api";
 import { QueryStatus } from "@reduxjs/toolkit/query";
 import StatusForm from "../StatusForm/StatusForm";
+import PopupBtns from "../PopupBtns/PopupBtns";
 
 type IPopup = {
     setPopup: React.Dispatch<React.SetStateAction<boolean>>
@@ -23,18 +24,6 @@ const Popup = ({ setPopup }: IPopup) => {
         setComment(e.target.value)
     }
 
-    const handlerCountPlus = () => {
-        if (peopleCount < 5) {
-            setPeopleCount((prev) => prev + 1)
-        }
-    }
-
-    const handlerCountMinus = () => {
-        if (peopleCount > 1) {
-            setPeopleCount((prev) => prev - 1)
-        }
-    }
-
     const handlerPopup = () => {
         setPopup(prev => !prev)
     }
@@ -42,7 +31,7 @@ const Popup = ({ setPopup }: IPopup) => {
     const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         const postData = {
-            "tourId": 1,
+            "tourId": Date.now(),
             "phoneNumber": tel,
             "peopleCount": peopleCount,
             "comment": comment
@@ -56,11 +45,12 @@ const Popup = ({ setPopup }: IPopup) => {
 
     const isValidForm = tel && isValidPhoneNumber(tel)
 
+
     return (
         <div className="overlay">
             <form onSubmit={onSubmit} className="popup">
                 {
-                    status === QueryStatus.uninitialized && <>
+                    ( status === QueryStatus.uninitialized || status === QueryStatus.pending)  && <>
                         <div className="popup__top">
                             <h2 className="popup__title">Info</h2>
                             <span onClick={handlerPopup} className="popup__icon-close"><IoClose /></span>
@@ -86,11 +76,7 @@ const Popup = ({ setPopup }: IPopup) => {
                         <div className="popup__bottom">
                             <p className="popup__text">Commentaries to trip</p>
                             <div className="popup__bottom-block">
-                                <div className="popup__bottom-block-count">
-                                    <span onClick={handlerCountMinus} className="popup__icon-minus">-</span>
-                                    <p className="popup__bottom-count">{peopleCount}</p>
-                                    <span onClick={handlerCountPlus} className="popup__icon-plus">+</span>
-                                </div>
+                                <PopupBtns peopleCount={peopleCount} setPeopleCount={setPeopleCount}/>
                                 <div className="popup__bottom-block-people">
                                     <span className="popup__icon-user"><FaRegUser /></span>
                                     <p className="popup__bottom-text">{peopleCount} People</p>
@@ -101,10 +87,10 @@ const Popup = ({ setPopup }: IPopup) => {
                     </>
                 }
                 {
-                    (status === QueryStatus.pending || status === QueryStatus.rejected || status === QueryStatus.fulfilled) && <StatusForm
+                    ( status === QueryStatus.rejected || status === QueryStatus.fulfilled) && <StatusForm
                         statusText={
                                 status === QueryStatus.rejected ? "The tour can’t be booked" :
-                                    "Your trip has been booked!"
+                                    status === QueryStatus.fulfilled ? "Your trip has been booked!" : ""
                         }
                         onClose={handlerPopup}
                     />

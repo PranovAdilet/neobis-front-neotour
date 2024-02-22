@@ -7,6 +7,7 @@ interface IProps{
 }
 
 const SkeletonCard = ({count, classname}: IProps) => {
+
     const skeletonCards = new Array(count).fill(0).map((_, idx) => (
         <div className={`${classname}__skeleton`} key={idx}>
             <Skeleton className={`${classname}__skeleton-card`} height={300} />

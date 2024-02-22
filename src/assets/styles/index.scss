@@ -1,9 +1,12 @@
-@import "./styles/trips";
-@import "./styles/discover";
-@import "./styles/recommended";
-@import "./styles/description";
-@import "./styles/popup";
-@import "./styles/swiper";
+
+@import "trips";
+@import "discover";
+@import "recommended";
+@import "description";
+@import "popup";
+@import "swiper";
+@import "imageGallery";
+@import "media";
 
 *{
   padding: 0;
@@ -22,6 +25,6 @@ html{
 
 .container{
   width: 100%;
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 0 auto;
 }

@@ -4,7 +4,7 @@ import {IDiscoverTour} from "../../interface/app.interface";
 import {categories} from "../../utils/categories";
 import DiscoverCard from "../../components/DiscoverCard/DiscoverCard";
 import DiscoverBtns from "../../components/DiscoverBtns/DiscoverBtns";
-import SkeletonCards from "../../components/SkeletonCards/SkeletonCards";
+import SkeletonCards from "../../components/Skeleton/SkeletonCards/SkeletonCards";
 
 
 const Discover = () => {

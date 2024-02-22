@@ -1,37 +1,39 @@
 .recommended{
-  padding: 132px 0;
+  padding: 8.2rem 0;
 
   &__title{
     color: var(--Black, #141414);
-    font-size: 48px;
+    font-size: 3rem;
     font-weight: 700;
   }
   &__top{
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    margin-bottom: 4.5rem;
   }
   &__row{
     display: flex;
-    gap: 25px;
+    gap: 1.4rem;
     flex-wrap: wrap;
 
-    margin-top: 72px;
+
   }
   &__select{
-    min-width: 95px;
+    min-width: 5.9rem;
   }
   &__item{
     position: relative;
-    width: calc(25% - 20px);
-    
+    width: calc(25% - 18px);
+    min-width: 264px;
     &-img{
       width: 100%;
       object-fit: cover;
 
       border-radius: 14px;
 
-      height: 280px;
+      height: 17.5rem;
     }
     &-title{
       color: var(--White, #FFF);
@@ -39,8 +41,8 @@
       font-weight: 700;
 
       position: absolute;
-      bottom: 18px;
-      left: 16px;
+      bottom: 1.1rem;
+      left: 1rem;
       z-index: 2;
 
     }
@@ -61,14 +63,14 @@
     }
   }
   &__skeleton{
-    max-width: 384px;
-    height: 300px;
-    width: calc(25% - 20px);
+    height: 17.4rem;
+    width: 17.4rem;
 
     border-radius: 20px;
     &-box{
       display: flex;
-      gap: 25px;
+      flex-wrap: wrap;
+      gap: 2.5rem 1.5rem;
 
     }
     &-card{

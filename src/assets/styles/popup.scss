@@ -21,20 +21,20 @@
   background: #FFF;
 
   width: 100%;
-  max-width: 614px;
+  max-width: 38.3rem;
 
-  padding: 40px;
+  padding: 2.5rem;
 
   &__info{
     color: var(--Black, #141414);
-    font-size: 18px;
+    font-size: 1.1rem;
     font-weight: 400;
 
-    margin: 20px 0 32px;
+    margin: 1.2rem 0 2rem;
   }
   &__title{
     color: var(--Black, #141414);
-    font-size: 48px;
+    font-size: 3rem;
     font-weight: 700;
   }
 
@@ -46,21 +46,21 @@
   &__label{
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
+    row-gap: 0.6rem;
 
     width: 100%;
 
-    margin-bottom: 24px;
+    margin-bottom: 1.4rem;
   }
   &__input{
     width: 100%;
-    padding: 13px 20px;
+    padding: 0.9rem 1.2rem;
 
     border-radius: 100px;
     border: 1px solid var(--Input-gray, #636363);
 
     color: var(--Gray, #888);
-    font-size: 18px;
+    font-size: 1.1rem;
     font-weight: 400;
 
     outline: none;
@@ -74,65 +74,64 @@
   &__bottom{
     display: flex;
     flex-direction: column;
-    row-gap: 7px;
+    row-gap: 0.6rem;
 
     &-block{
       display: flex;
       align-items: center;
-      column-gap: 20px;
+      column-gap: 1.2rem;
 
-      margin-bottom: 48px;
+      margin-bottom: 3rem;
       &-count{
         display: flex;
         align-items: center;
 
-        column-gap: 17px;
+        column-gap: 1rem;
       }
       &-people{
         display: flex;
-        column-gap: 12px;
+        column-gap: 0.8rem;
         align-items: center;
       }
     }
     &-count{
       color: var(--Black, #141414);
-      font-size: 20px;
+      font-size: 1.2rem;
       font-weight: 700;
     }
     &-text{
       color: var(--Black, #141414);
-      font-size: 16px;
       font-weight: 500;
     }
   }
   &__icon{
     &-plus{
-      font-size: 22px;
+      font-size: 1.3rem;
       color: #FFFFFF;
 
-      min-width: 40px;
+      min-width: 2.5rem;
       display: flex;
       justify-content: center;
       align-items: center;
 
-      padding: 6px 11px;
+      padding: 0.4rem 0.7rem;
       border-radius: 16px;
       background: #897CFF;
 
       cursor: pointer;
     }
     &-minus{
-      font-size: 32px;
+      font-size: 2rem;
       color: #FFFFFF;
 
-      min-width: 40px;
-      max-height: 38px;
+      min-width: 2.5rem;
+      max-height: 2.4rem;
 
       display: flex;
       justify-content: center;
       align-items: center;
 
-      padding: 4px 11px 9px;
+      padding: 0.3rem 0.7rem 0.6rem;
       border-radius: 16px;
       background: #897CFF;
 
@@ -145,16 +144,16 @@
     }
     &-user{
       margin-top: 3px;
-      font-size: 18px;
+      font-size: 1.1rem;
     }
   }
 
   &__btn{
-    padding: 13px 0;
+    padding: 0.9rem 0;
     width: 100%;
 
     color: #FFF;
-    font-size: 24px;
+    font-size: 1.4rem;
     font-weight: 500;
 
     border-radius: 28px;
@@ -171,21 +170,21 @@
 
   &__error{
     color: red;
-    margin: 5px 0 0 17px;
+    margin: 0.3rem 0 0 1.1rem;
   }
 
   &__status{
     &-text{
       color: var(--Black, #141414);
       text-align: center;
-      font-size: 35px;
+      font-size: 2.2rem;
       font-weight: 700;
 
-      margin-bottom: 32px;
+      margin-bottom: 2rem;
     }
     &-btn{
       color: #FFF;
-      font-size: 24px;
+      font-size: 1.4rem;
       font-weight: 500;
 
       cursor: pointer;
@@ -195,7 +194,7 @@
       border-radius: 100px;
       background: var(--Primary, #6A62B7);
 
-      padding: 13px 0;
+      padding: 0.8rem 0;
 
       width: 100%;
     }

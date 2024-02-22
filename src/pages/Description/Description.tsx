@@ -5,6 +5,7 @@ import {Link, useParams} from "react-router-dom";
 import {useGetTourQuery} from "../../store/api/api";
 import SwiperImages from "../../components/SwiperImages/SwiperImages";
 import Reviews from "../../components/Reviews/Reviews";
+import SkeletonDescriptionCard from "../../components/Skeleton/SkeletonDescriptionCard/SkeletonDescriptionCard";
 
 
 const Description = () => {
@@ -27,10 +28,14 @@ const Description = () => {
         <>
             <section className="description">
                 <div className="description__top">
+                    {
+                        isLoading && <SkeletonDescriptionCard count={1} classname={'Description'}/>
+                    }
                         <SwiperImages images={data?.images}/>
                         <Link to="/" className="description__top-content">
                             <button className="description__top-content-btn"></button>
                             <h3 className="description__top-content-text">Go back</h3>
+                            <h3 className="description__top-content-text-mobile">Back</h3>
                         </Link>
                 </div>
                 <div className="description__bottom">
@@ -51,9 +56,6 @@ const Description = () => {
                                 <Reviews data={data}/>
                                 <button onClick={handlerPopup} className="description__btn">Book now</button>
                             </div>
-                        }
-                        {
-                            isLoading && <p>...Loading</p>
                         }
 
                         {

@@ -1,0 +1,52 @@
+@media screen and (max-width: 1240px) {
+  .trips {
+    padding: 9rem 2rem;
+  }
+  .trips__title {
+    font-size: 5rem;
+    line-height: 6rem;
+  }
+  .trips__right {
+    width: auto;
+  }
+  .trips__left {
+    width: auto;
+  }
+  .trips__content {
+    align-items: center;
+  }
+  .recommended {
+    padding: 8.2rem 2rem;
+  }
+  .discover {
+    padding: 0 2rem;
+  }
+}
+@media screen and (max-width: 1040px) {
+  .recommended__item-img {
+    height: 16rem;
+  }
+  .discover__item-img {
+    height: 17rem;
+  }
+  .trips {
+    padding: 9rem 2rem;
+  }
+  .trips__title {
+    font-size: 4rem;
+  }
+  .trips__info {
+    font-size: 1.3rem;
+  }
+  .trips__right {
+    width: auto;
+  }
+  .trips__left {
+    width: auto;
+  }
+  .trips__content {
+    align-items: center;
+  }
+}
+
+/*# sourceMappingURL=media.css.map */

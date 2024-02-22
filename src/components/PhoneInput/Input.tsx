@@ -32,6 +32,7 @@ const Input = ({...props} : IProps) => {
                 defaultCountry="KG"
                 onBlur={handleBlur}
                 limitMaxLength={true}
+                countries={['KG', 'KZ', "RU", "UZ"]}
             />
             {props.error && <p className="popup__error">{props.error}</p>}
         </div>

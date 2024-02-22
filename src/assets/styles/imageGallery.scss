@@ -1,0 +1,17 @@
+
+.image-gallery-play-button{
+  display: none;
+}
+
+.image-gallery-fullscreen-button{
+  bottom: 100px !important;
+  right: 10px !important;
+}
+.image-gallery-image{
+  min-height: 562px !important;
+  object-fit: cover !important;
+}
+.image-gallery-thumbnail .image-gallery-thumbnail-image {
+  height: 60px;
+  object-fit: cover;
+}

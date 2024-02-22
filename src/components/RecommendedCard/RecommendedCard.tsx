@@ -6,13 +6,17 @@ import {transformImg} from "../../utils/transformImg";
 const RecommendedCard = ({item} : {item : IDiscoverTour}) => {
 
     const nameLength = (name : string) => {
-        if (name.length > 28){
-            return name.slice(0, 23) + '...'
+
+        if (name.length > 23){
+            return name.slice(0, 20) + '..'
+        }
+        if (window.innerWidth < 1100 && name.length > 20){
+            return name.slice(0, 18) + '..'
         }
         return name
     }
 
-    const URL_IMG = transformImg(item.imageUrl, '280', '280')
+    const URL_IMG = transformImg(item.imageUrl, '300', '200')
 
     return (
         <Link to={`/descr/${item.id}`} key={item.id} className="recommended__item">
