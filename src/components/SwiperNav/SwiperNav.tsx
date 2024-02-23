@@ -17,10 +17,7 @@ const SwiperNav = ({setCategory, setPage, category} : IProps) => {
         setCategory(item)
     }
     const pagination = {
-        clickable: true,
-        renderBullet: function (index : number, className : string) {
-            return '<span class="' + className + '">' + '</span>';
-        },
+        clickable: true
     };
 
 
