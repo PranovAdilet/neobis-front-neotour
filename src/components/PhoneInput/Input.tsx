@@ -18,6 +18,8 @@ const Input = ({...props} : IProps) => {
     const handleBlur = () => {
         if (props.tel && !isValidPhoneNumber(props.tel)){
             props.setError('Invalid phone number format');
+        }else {
+            props.setError('')
         }
     }
 
