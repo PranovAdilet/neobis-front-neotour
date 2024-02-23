@@ -57,6 +57,17 @@
   }
   &__img{
     max-width: 100%;
+
+    &-mobile{
+      width: 100%;
+      display: none;
+      max-height: 500px;
+      padding-bottom: 10px;
+
+      object-fit: cover;
+
+      border-radius: 0 0 37px 37px;
+    }
   }
   &__right{
     width: 40%;

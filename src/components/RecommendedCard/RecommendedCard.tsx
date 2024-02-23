@@ -6,13 +6,22 @@ import {transformImg} from "../../utils/transformImg";
 const RecommendedCard = ({item} : {item : IDiscoverTour}) => {
 
     const nameLength = (name : string) => {
-
-        if (name.length > 23){
-            return name.slice(0, 20) + '..'
+        if (window.innerWidth < 400 && name.length > 32){
+            return name.slice(0, 30) + '..'
+        }
+        if (window.innerWidth < 400){
+            return name
+        }
+        if (window.innerWidth < 530 && name.length > 18){
+            return name.slice(0, 15) + '..'
         }
         if (window.innerWidth < 1100 && name.length > 20){
             return name.slice(0, 18) + '..'
         }
+        if (name.length > 23){
+            return name.slice(0, 20) + '..'
+        }
+
         return name
     }
 

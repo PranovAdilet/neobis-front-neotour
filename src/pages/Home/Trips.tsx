@@ -1,5 +1,6 @@
 import React from 'react';
 import trips from '../../assets/images/trips.png'
+import mobileImg from '../../assets/images/TripsImg.png'
 
 
 const Trips = () => {
@@ -11,6 +12,7 @@ const Trips = () => {
     return (
         <section className="trips">
             <div className="container">
+                <img className="trips__img-mobile" src={mobileImg} alt=""/>
                 <div className="trips__content">
                    <div className="trips__left">
                        <h2 className="trips__title">Winter Vacation Trips</h2>

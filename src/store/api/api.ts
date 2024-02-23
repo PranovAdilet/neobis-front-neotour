@@ -17,7 +17,7 @@ export const api = createApi({
         }),
     endpoints: (builder) => ({
         getDiscoverTours: builder.query<IData, IQuery>({
-            query: ({category, page}) => `/tours?param=${category}&page=${page}`
+            query: ({category, page}) => `/tours?param=${category}&size=5&page=${page}`
         }),
         getRecommendedTours: builder.query<IData, string>({
             query: (month) => `/tours?param=recommended&month=${month}`

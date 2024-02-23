@@ -42,6 +42,14 @@
 .trips__img {
   max-width: 100%;
 }
+.trips__img-mobile {
+  width: 100%;
+  display: none;
+  max-height: 500px;
+  padding-bottom: 10px;
+  object-fit: cover;
+  border-radius: 0 0 37px 37px;
+}
 .trips__right {
   width: 40%;
 }
@@ -130,6 +138,7 @@
   position: relative;
   cursor: pointer;
   width: 384px;
+  min-width: 335px;
 }
 .discover__item-img {
   width: 100%;
@@ -164,17 +173,31 @@
 .discover__btns-left {
   border: 1px solid #888;
   border-radius: 50%;
-  padding: 0.3rem 0.8rem;
+  padding: 1.3rem 0.8rem;
   outline: none;
+  background: #FFFFFF;
+  cursor: pointer;
 }
 .discover__btns-left:hover {
   background: var(--Inactive, #B4B0DA) !important;
 }
+.discover__btns-left:disabled {
+  background: #f6f5f5;
+  cursor: auto;
+  pointer-events: none;
+}
 .discover__btns-right {
   border: 1px solid #888;
   border-radius: 50%;
-  padding: 0.3rem 0.8rem;
+  padding: 1.3rem 0.8rem;
   outline: none;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+.discover__btns-right:disabled {
+  background: #f6f5f5;
+  cursor: auto;
+  pointer-events: none;
 }
 .discover__btns-right:hover {
   background: var(--Inactive, #B4B0DA) !important;
@@ -705,6 +728,50 @@
 .swiper-slide {
   display: flex !important;
   column-gap: 24px;
+  position: relative;
+}
+
+.swiper-slide-nav {
+  width: auto !important;
+  margin: 0 4rem 0 10px;
+}
+
+.swiper {
+  padding-bottom: 30px;
+  overflow: clip;
+}
+
+.sliderSwiperNav {
+  margin: 2.1rem 0 5rem 0.6rem;
+}
+
+.swiper-pagination-bullets {
+  display: none;
+  bottom: -6px !important;
+}
+
+.swiper-pagination {
+  position: absolute;
+  text-align: center;
+  transition: 300ms opacity;
+  transform: translate3d(0, 0, 0);
+  z-index: 10;
+}
+.swiper-pagination.swiper-pagination-hidden {
+  opacity: 0;
+}
+.swiper-pagination-disabled > .swiper-pagination, .swiper-pagination.swiper-pagination-disabled {
+  display: none !important;
+}
+
+.swiper-pagination-bullet {
+  background: #897CFF !important;
+}
+.swiper-pagination-bullet-active {
+  width: 23px !important;
+  height: 6px !important;
+  border-radius: 3px !important;
+  background: #897CFF !important;
 }
 
 .image-gallery-play-button {
@@ -818,6 +885,42 @@
     top: 3rem;
     left: 3rem;
   }
+  .swiper-slide-nav {
+    margin: 0 2rem 0 10px;
+  }
+  .recommended__item {
+    min-width: auto;
+    width: calc(50% - 12px);
+  }
+  .recommended__item-img {
+    height: 14rem;
+  }
+  .trips {
+    padding: 0 0 5rem;
+    border-radius: 0 0;
+  }
+  .trips__left-bottom {
+    border-radius: 25px;
+    background: var(--Primary, #6A62B7);
+    padding: 17px 30px;
+    max-width: 210px;
+    margin-left: 0;
+  }
+  .trips__left-bottom:hover {
+    background: #B4B0DA;
+  }
+  .trips__text {
+    font-size: 1.2rem;
+  }
+  .trips__content {
+    padding: 0 1rem;
+  }
+  .trips__img {
+    display: none;
+  }
+  .trips__img-mobile {
+    display: block;
+  }
 }
 @media (max-width: 530px) {
   .popup {
@@ -849,8 +952,70 @@
     font-size: 1.3rem;
     padding: 0.5rem;
   }
+  .trips__content {
+    display: block;
+  }
+  .trips__title {
+    margin-top: 0.7rem;
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+  .trips__info {
+    font-size: 1rem;
+  }
+  .trips__text {
+    font-size: 1rem;
+  }
+  .trips__left-bottom {
+    max-width: 190px;
+  }
+  .discover__title {
+    font-size: 2rem;
+  }
+  .discover .swiper-pagination-bullets {
+    display: block;
+  }
+  .discover__btns {
+    display: none;
+  }
+  .discover__btns-left {
+    padding: 1.3rem 0.6rem;
+  }
+  .discover__btns-right {
+    padding: 1.3rem 0.6rem;
+  }
+  .discover__item {
+    min-width: auto;
+  }
+  .discover__item-title {
+    font-size: 1.2rem;
+  }
+  .discover__item-img {
+    height: 15rem;
+  }
+  .discover__item-bottom {
+    height: 3rem;
+  }
+  .discover__nav-item {
+    font-size: 1.2rem;
+  }
+  .recommended {
+    padding-top: 2.4rem;
+  }
+  .recommended__title {
+    font-size: 2rem;
+  }
+  .recommended__top {
+    margin-bottom: 1.3rem;
+  }
+  .sliderSwiperNav {
+    margin: 1.3rem 1rem;
+  }
 }
 @media (max-width: 400px) {
+  .swiper-slide-nav {
+    margin: 0 1.2rem 0 10px;
+  }
   .description__content {
     padding: 2.2rem 1rem 4rem;
   }
@@ -893,6 +1058,15 @@
   }
   .description__top-content-text-mobile {
     display: block;
+  }
+  .recommended__item {
+    width: 100%;
+  }
+  .recommended__top {
+    display: block;
+  }
+  .recommended__title {
+    margin-bottom: 1.5rem;
   }
   .image-gallery-svg {
     display: none;

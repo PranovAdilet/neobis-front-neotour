@@ -1,60 +1,53 @@
-import React, {CSSProperties, Dispatch, SetStateAction} from 'react';
+import React, { Dispatch, SetStateAction, useEffect} from 'react';
 import {IData} from "../../interface/app.interface";
+import { Swiper as SwiperType} from "swiper";
+
 
 
 interface IProps{
     data: IData | undefined
     page: number
     setPage: Dispatch<SetStateAction<number>>
+    swiper:   SwiperType | null
+    isBeginning: boolean
+    isEnd: boolean
+    category: string
+    setIsBeginning: (state: boolean) => void
+    setIsEnd: (state: boolean) => void
 }
 
-const DiscoverBtns = ({data, page, setPage}: IProps) => {
 
-    const handlerPagePlus = () => {
-        if (data && page < data.totalPages - 1) {
-            setPage(prevPage => prevPage + 1)
-        }
-    }
-    const handlerPageMinus = () => {
-        if (page > 0) {
-            setPage(prevPage => prevPage - 1);
+
+const DiscoverBtns  = ({ swiper, isEnd, isBeginning, category, setIsEnd}: IProps) => {
+
+
+    const handleSlideNext = () => {
+        if (!isEnd){
+            swiper.current.swiper.slideNext()
         }
     }
 
-    const btnsColorRight = () => {
-        if (data && page === data.totalPages - 1){
-            return {
-                background: "#f6f5f5",
-                cursor: "auto",
-                pointerEvents: "none"
-            } as CSSProperties
-        }else {
-            return {
-                background: "#FFFFFF",
-                cursor: "pointer"
-            }
+    useEffect(() => {
+        swiper.current.swiper.slideTo(0)
+        if (swiper.current.swiper.slides.length > 3){
+            console.log(2)
+            setIsEnd(false)
         }
 
-    }
-    const btnsColorLeft = () => {
-        if (page === 0){
-            return {
-                background: "#f6f5f5",
-                cursor: "auto",
-                pointerEvents: "none"
-            } as CSSProperties;
-        }else {
-            return {
-                background: "#FFFFFF",
-                cursor: "pointer"
-            }
+    },[category, setIsEnd, swiper])
+
+    const handleSlidePrev = () => {
+        if (!isBeginning){
+            swiper.current.swiper.slidePrev()
         }
-    }
+    };
+
+
 
     return (
         <div className="discover__btns">
-            <button style={btnsColorLeft()} onClick={handlerPageMinus} className="discover__btns-left"><div className="discover__arrow-left"></div></button>
-            <button style={btnsColorRight()} onClick={handlerPagePlus} className="discover__btns-right"><div className="discover__arrow-right"></div></button>
+            <button disabled={isBeginning} onClick={handleSlidePrev} className="discover__btns-left"><div className="discover__arrow-left"></div></button>
+            <button disabled={isEnd} onClick={handleSlideNext} className="discover__btns-right"><div className="discover__arrow-right"></div></button>
         </div>
     );
 };

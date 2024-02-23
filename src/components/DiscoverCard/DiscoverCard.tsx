@@ -3,6 +3,7 @@ import {IDiscoverTour} from "../../interface/app.interface";
 import {Link} from "react-router-dom";
 import {transformImg} from "../../utils/transformImg";
 
+
 const DiscoverCard = ({item}: {item: IDiscoverTour}) => {
 
     const nameLength = (name : string) => {
