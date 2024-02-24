@@ -2,8 +2,8 @@ import React, {useRef, useState} from 'react';
 import {useGetDiscoverToursQuery} from '../../store/api/api';
 import DiscoverBtns from "../../components/DiscoverBtns/DiscoverBtns";
 import SkeletonCards from "../../components/Skeleton/SkeletonCards/SkeletonCards";
-import SwiperNav from "../../components/SwiperNav/SwiperNav";
-import {Swiper as SwiperType} from "swiper";
+import SwiperNav from "../../components/Swiper/SwiperNav/SwiperNav";
+import {Swiper} from "swiper";
 import SwiperDiscover from "../../components/Swiper/SwiperDiscover";
 
 
@@ -15,9 +15,7 @@ const Discover = () => {
     const [isEnd, setIsEnd] = useState<boolean>(false)
 
     const { data, isLoading, error } = useGetDiscoverToursQuery({category, page})
-    const swiperRef = useRef<SwiperType | null>(null)
-
-
+    const swiperRef = useRef<Swiper | null>(null)
 
 
     return (

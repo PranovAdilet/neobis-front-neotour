@@ -91,9 +91,7 @@
       font-size: 3.5rem;
     }
   }
-  .image-gallery-fullscreen-button{
-      display: none;
-  }
+
   .image-gallery-right-nav{
     top: 40% !important;
   }
@@ -127,6 +125,9 @@
       width: calc(50% - 12px);
       &-img{
         height: 14rem;
+      }
+      &-bottom{
+        height: 70px;
       }
     }
   }
@@ -253,7 +254,7 @@
     }
   }
   .recommended{
-    padding-top: 2.4rem;
+    padding: 2.4rem 1rem;
     &__title{
       font-size: 2rem;
     }
@@ -271,7 +272,6 @@
   .swiper-slide-nav{
     margin: 0 1.2rem 0 10px;
   }
-
   .description{
     &__content{
       padding: 2.2rem 1rem 4rem;
@@ -292,10 +292,13 @@
       font-size: 0.8rem;
     }
     &__reviews{
-      font-size: 0.8rem !important;
+
       &-btn{
         max-width: 9rem;
         justify-content: start;
+      }
+      &-comment{
+        font-size: 0.9rem;
       }
     }
     &__btn{

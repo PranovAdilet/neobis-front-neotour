@@ -22,7 +22,7 @@ const Reviews = ({data} : {data: IDescriptionTour}) => {
                             <img className="description__reviews-avatar" src={item.imageUrl} alt=""/>
                             <p className="description__reviews-name">{item.author}</p>
                         </div>
-                        <p className="description__reviews-comment">{item.text}</p>
+                        <p className="description__reviews-comment">{item.body}</p>
                     </div>
                 )) : <p>No reviews available</p>
             }

@@ -26,6 +26,7 @@ const Input = ({...props} : IProps) => {
     return (
         <div>
             <PhoneInput
+
                 international
                 className="popup__input"
                 placeholder="Enter phone number"

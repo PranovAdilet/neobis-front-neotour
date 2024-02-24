@@ -6,7 +6,7 @@ import { isValidPhoneNumber } from "react-phone-number-input";
 import { usePostBookingMutation } from "../../store/api/api";
 import { QueryStatus } from "@reduxjs/toolkit/query";
 import StatusForm from "../StatusForm/StatusForm";
-import PopupBtns from "../PopupBtns/PopupBtns";
+import PopupBtns from "./PopupBtns/PopupBtns";
 
 type IPopup = {
     setPopup: React.Dispatch<React.SetStateAction<boolean>>

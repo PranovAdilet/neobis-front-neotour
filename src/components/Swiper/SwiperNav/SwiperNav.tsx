@@ -1,7 +1,7 @@
 import React, {Dispatch, SetStateAction} from 'react';
 import {Swiper} from "swiper/react";
 import {Navigation} from "swiper/modules";
-import {categories} from "../../utils/categories";
+import {categories} from "../../../utils/categories";
 import {SwiperSlide} from "swiper/react";
 
 type IProps = {

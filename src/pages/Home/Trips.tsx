@@ -12,6 +12,7 @@ const Trips = () => {
     return (
         <section className="trips">
             <div className="container">
+
                 <img className="trips__img-mobile" src={mobileImg} alt=""/>
                 <div className="trips__content">
                    <div className="trips__left">

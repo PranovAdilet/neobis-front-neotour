@@ -6,9 +6,9 @@ export interface IDiscoverTour{
 
 interface IReview{
     author: string
-    date: string
+    dateTime: string
     imageUrl: string
-    text: string
+    body: string
 }
 
 export interface IDescriptionTour{
@@ -40,5 +40,16 @@ export interface IPostData{
     tourId: number
     peopleCount: number
     comment: string
+}
 
+export interface ILoginField{
+    username: string
+    password: string
+}
+
+export interface IShippingFields extends ILoginField{
+    email: string
+    firstname: string
+    lastname: string
+    phoneNumber: string
 }

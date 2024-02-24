@@ -1,10 +1,19 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {IData, IDescriptionTour, IPostData} from "../../interface/app.interface";
+import {IData, IDescriptionTour, ILoginField, IPostData, IShippingFields} from "../../interface/app.interface";
 
 interface IQuery{
     category: string
     page: number
 }
+
+interface IUserData{
+    email: string
+    firstname: string
+    lastname: string
+    phoneNumber: string
+    username: string
+}
+
 
 const API_URL = `https://neo-tour-production.up.railway.app/v1`
 export const api = createApi({
@@ -31,9 +40,23 @@ export const api = createApi({
                 method: 'POST',
                 body: data
             })
+        }),
+        signUp: builder.mutation<IUserData, IShippingFields>({
+            query: (data) => ({
+                url: '/registration',
+                method: 'POST',
+                body: data
+            })
+        }),
+        signIn: builder.mutation<IUserData, ILoginField>({
+            query: (data) => ({
+                url: '/login',
+                method: 'POST',
+                body: data
+            })
         })
 
     })
 })
 
-export const {useGetDiscoverToursQuery, useGetRecommendedToursQuery, useGetTourQuery, usePostBookingMutation} = api
+export const {useGetDiscoverToursQuery, useGetRecommendedToursQuery, useGetTourQuery, usePostBookingMutation, useSignUpMutation, useSignInMutation} = api
