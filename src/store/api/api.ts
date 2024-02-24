@@ -42,11 +42,29 @@ export const api = createApi({
             })
         }),
         signUp: builder.mutation<IUserData, IShippingFields>({
-            query: (data) => ({
-                url: '/registration',
-                method: 'POST',
-                body: data
-            })
+            query: (data) => {
+            // query: (data, image) => { // for image uploads
+                const fields = {
+                    firstName: data.firstname,
+                    lastName:data.lastname,
+                    email: data.email,
+                    password: data.password,
+                    phoneNumber: data.phoneNumber,
+                    username: data.username
+                }
+                const formData = new FormData();
+                formData.append('dto', JSON.stringify(fields));
+
+                // if (image) {
+                //     formData.append('image', image);
+                // }
+
+                return {
+                    url: '/registration',
+                    method: 'POST',
+                    body: formData,
+                };
+            }
         }),
         signIn: builder.mutation<IUserData, ILoginField>({
             query: (data) => ({
