@@ -39,3 +39,12 @@ NeoTour - это оптимизированное приложение, разр
    ```
    npm start
    ```
+
+## Author
+
+Pranov Adilet
+
+## License
+
+This project is licensed under the MIT License.
+
