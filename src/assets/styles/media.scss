@@ -72,9 +72,6 @@
       }
     }
   }
-  .swiper-pagination-images{
-    top: 480px !important;
-  }
 }
 
 @media  (max-width: 876px ) {
@@ -93,16 +90,6 @@
     &__title{
       font-size: 3.5rem;
     }
-  }
-
-  .image-gallery-right-nav{
-    top: 40% !important;
-  }
-  .image-gallery-left-nav{
-    top: 40% !important;
-  }
-  .swiper-pagination-images{
-    top: 410px !important;
   }
 }
 

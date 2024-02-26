@@ -1,5 +1,4 @@
 import React from 'react';
-import 'react-image-gallery/styles/css/image-gallery.css';
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Pagination} from "swiper/modules";
 

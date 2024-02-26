@@ -5,7 +5,6 @@
 @import "description";
 @import "popup";
 @import "swiper";
-@import "imageGallery";
 @import "media";
 @import "auth";
 
@@ -30,10 +29,3 @@ html{
   margin: 0 auto;
 }
 
-.PhoneInputInput {
-
-  /* Подчеркивание для пустых ячеек */
-  &::placeholder {
-    text-decoration: underline !important;
-  }
-}
