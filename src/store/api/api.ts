@@ -1,21 +1,21 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {IData, IDescriptionTour, ILoginField, IPostData, IShippingFields} from "../../interface/app.interface";
+import {
+    IData,
+    IDescriptionTour,
+    ILoginField,
+    IPostData,
+    IShippingFields,
+    IUserData, IUserLoginData
+} from "../../interface/app.interface";
 
 interface IQuery{
     category: string
     page: number
 }
 
-interface IUserData{
-    email: string
-    firstname: string
-    lastname: string
-    phoneNumber: string
-    username: string
-}
 
+const API_URL = 'https://neo-tour-production.up.railway.app/v1'
 
-const API_URL = `https://neo-tour-production.up.railway.app/v1`
 export const api = createApi({
     reducerPath: "api",
     tagTypes:['api'],
@@ -43,22 +43,15 @@ export const api = createApi({
         }),
         signUp: builder.mutation<IUserData, IShippingFields>({
             query: (data) => {
-            // query: (data, image) => { // for image uploads
-                const fields = {
-                    firstName: data.firstname,
-                    lastName:data.lastname,
-                    email: data.email,
-                    password: data.password,
-                    phoneNumber: data.phoneNumber,
-                    username: data.username
-                }
-                const formData = new FormData();
-                formData.append('dto', JSON.stringify(fields));
+                // query: (data, image) => { // for image uploads
+
+                const formData = new FormData()
+                formData.append('dto', JSON.stringify(data))
+                console.log(formData)
 
                 // if (image) {
                 //     formData.append('image', image);
                 // }
-
                 return {
                     url: '/registration',
                     method: 'POST',
@@ -66,7 +59,7 @@ export const api = createApi({
                 };
             }
         }),
-        signIn: builder.mutation<IUserData, ILoginField>({
+        signIn: builder.mutation<IUserLoginData, ILoginField>({
             query: (data) => ({
                 url: '/login',
                 method: 'POST',

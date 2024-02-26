@@ -53,3 +53,22 @@ export interface IShippingFields extends ILoginField{
     lastname: string
     phoneNumber: string
 }
+
+
+export interface IUserData{
+    email: string
+    firstName: string
+    lastName: string
+    phoneNumber: string
+    username: string
+}
+
+export interface IUserLoginData{
+    email: string
+    firstName: string
+    lastName: string
+    phoneNumber: string
+    username: string
+    accessToken: string
+    imageUrl: string
+}

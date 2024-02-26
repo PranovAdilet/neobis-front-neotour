@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import { CiLocationOn } from "react-icons/ci";
-import Popup from "../../components/Popup/Popup";
+import Popup from "../../components/MUI/Popup/Popup";
 import {Link, useParams} from "react-router-dom";
 import {useGetTourQuery} from "../../store/api/api";
-import SwiperImages from "../../components/Swiper/SwiperImages/SwiperImages";
-import Reviews from "../../components/Reviews/Reviews";
-import SkeletonDescriptionCard from "../../components/Skeleton/SkeletonDescriptionCard/SkeletonDescriptionCard";
+import SwiperImages from "../../components/MUI/Swiper/SwiperImages/SwiperImages";
+import Reviews from "../../components/MUI/Reviews/Reviews";
+import SkeletonDescriptionCard from "../../components/MUI/Skeleton/SkeletonDescriptionCard/SkeletonDescriptionCard";
 
 
 const Description = () => {

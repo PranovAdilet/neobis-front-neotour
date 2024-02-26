@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import {useGetRecommendedToursQuery} from "../../store/api/api";
-import RecommendedCard from "../../components/RecommendedCard/RecommendedCard";
+import RecommendedCard from "../../components/MUI/RecommendedCard/RecommendedCard";
 import {getCurrentMonth} from "../../utils/currentMonth";
-import SkeletonCards from "../../components/Skeleton/SkeletonCards/SkeletonCards";
-import SelectMonth from "../../components/SelectMonth/SelectMonth";
+import SkeletonCards from "../../components/MUI/Skeleton/SkeletonCards/SkeletonCards";
+import SelectMonth from "../../components/MUI/SelectMonth/SelectMonth";
 
 const Recommended = () => {
     const currentMonth = getCurrentMonth()

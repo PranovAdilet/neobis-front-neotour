@@ -3,8 +3,8 @@ import {Link} from "react-router-dom";
 import {BiHomeSmile} from "react-icons/bi";
 import {useForm, SubmitHandler} from "react-hook-form";
 import InputMask from 'react-input-mask'
-import {IShippingFields} from "../../interface/app.interface";
-import {useSignUpMutation} from "../../store/api/api";
+import {IShippingFields} from "../../../interface/app.interface";
+import {useSignUpMutation} from "../../../store/api/api";
 
 
 const Register = ( ) => {

@@ -72,6 +72,9 @@
       }
     }
   }
+  .swiper-pagination-images{
+    top: 480px !important;
+  }
 }
 
 @media  (max-width: 876px ) {
@@ -97,6 +100,9 @@
   }
   .image-gallery-left-nav{
     top: 40% !important;
+  }
+  .swiper-pagination-images{
+    top: 410px !important;
   }
 }
 
@@ -265,6 +271,10 @@
   .sliderSwiperNav{
     margin: 1.3rem 1rem;
   }
+
+  .swiper__pagination{
+    display: flex !important;
+  }
 }
 
 
@@ -336,8 +346,11 @@
     display: none;
   }
 
+  .swiper__img{
+    min-height: 20rem;
+  }
+  .swiper-pagination-images{
+    top: 287px !important;
+  }
 }
 
-@media  (max-width: 1240px ) {
-
-}

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {IDescriptionTour} from "../../interface/app.interface";
+import {IDescriptionTour} from "../../../interface/app.interface";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 const Reviews = ({data} : {data: IDescriptionTour}) => {

@@ -1,10 +1,10 @@
 import React, {useRef, useState} from 'react';
 import {useGetDiscoverToursQuery} from '../../store/api/api';
-import DiscoverBtns from "../../components/DiscoverBtns/DiscoverBtns";
-import SkeletonCards from "../../components/Skeleton/SkeletonCards/SkeletonCards";
-import SwiperNav from "../../components/Swiper/SwiperNav/SwiperNav";
+import DiscoverBtns from "../../components/MUI/DiscoverBtns/DiscoverBtns";
+import SkeletonCards from "../../components/MUI/Skeleton/SkeletonCards/SkeletonCards";
+import SwiperNav from "../../components/MUI/Swiper/SwiperNav/SwiperNav";
 import {Swiper} from "swiper";
-import SwiperDiscover from "../../components/Swiper/SwiperDiscover";
+import SwiperDiscover from "../../components/MUI/Swiper/SwiperDiscover";
 
 
 const Discover = () => {
@@ -30,6 +30,7 @@ const Discover = () => {
                     <div className="swiper-wrapper">
                        <SwiperDiscover setIsBeginning={setIsBeginning} setIsEnd={setIsEnd} data={data} swiperRef={swiperRef}/>
                     </div>
+
                     {
                         isLoading && <SkeletonCards classname={'discover'} count={3}/>
                     }
@@ -38,6 +39,9 @@ const Discover = () => {
                         error && <div>{`Error: ${error}`}</div>
                     }
 
+                </div>
+                <div className="swiper__pagination">
+                    <div className="swiper__pagination-bullets"></div>
                 </div>
             </div>
         </section>

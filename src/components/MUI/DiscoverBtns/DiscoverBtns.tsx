@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect} from 'react';
-import {IData} from "../../interface/app.interface";
+import {IData} from "../../../interface/app.interface";
 import { Swiper as SwiperType} from "swiper";
 
 
@@ -20,8 +20,8 @@ interface IProps{
 const DiscoverBtns  = ({ ...props}: IProps) => {
 
     useEffect(() => {
-        props.swiper.current.swiper.slideTo(0)
-        if (props.swiper.current.swiper.slides.length > 3){
+        props.swiper.current.slideTo(0)
+        if (props.swiper.current.slides.length > 3){
             props.setIsEnd(false)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -29,14 +29,13 @@ const DiscoverBtns  = ({ ...props}: IProps) => {
 
     const handleSlideNext = () => {
         if (!props.isEnd){
-            console.log(1)
-            props.swiper.current.swiper.slideNext()
+            props.swiper.current.slideNext()
         }
     }
 
     const handleSlidePrev = () => {
         if (!props.isBeginning){
-            props.swiper.current.swiper.slidePrev()
+            props.swiper.current.slidePrev()
         }
     };
 

@@ -29,3 +29,11 @@ html{
   max-width: 75rem;
   margin: 0 auto;
 }
+
+.PhoneInputInput {
+
+  /* Подчеркивание для пустых ячеек */
+  &::placeholder {
+    text-decoration: underline !important;
+  }
+}

@@ -26,7 +26,7 @@ const Input = ({...props} : IProps) => {
     return (
         <div>
             <PhoneInput
-
+                autoComplete="tel-national"
                 international
                 className="popup__input"
                 placeholder="Enter phone number"

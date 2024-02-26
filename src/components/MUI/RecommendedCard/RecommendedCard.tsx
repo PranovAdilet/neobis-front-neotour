@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {IDiscoverTour} from "../../interface/app.interface";
-import {transformImg} from "../../utils/transformImg";
-import {nameLength} from "../../utils/nameLength";
+import {IDiscoverTour} from "../../../interface/app.interface";
+import {transformImg} from "../../../utils/transformImg";
+import {nameLength} from "../../../utils/nameLength";
 
 const RecommendedCard = ({item} : {item : IDiscoverTour}) => {
 

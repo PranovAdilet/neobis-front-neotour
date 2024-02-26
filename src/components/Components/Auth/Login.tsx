@@ -1,8 +1,8 @@
 import {Link} from "react-router-dom";
 import {BiHomeSmile} from "react-icons/bi"
 import {useForm, SubmitHandler} from "react-hook-form";
-import {ILoginField} from "../../interface/app.interface";
-import {useSignInMutation} from "../../store/api/api";
+import {ILoginField} from "../../../interface/app.interface";
+import {useSignInMutation} from "../../../store/api/api";
 
 
 const Login = () => {
