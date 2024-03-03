@@ -20,11 +20,14 @@ const PopupBtns = ({peopleCount, setPeopleCount} : IProps) => {
         }
     }
 
+    const isDisabledIncrement = peopleCount === 6
+    const isDisabledDecrement = peopleCount === 1
+
     return (
         <div className="popup__bottom-block-count">
-            <span onClick={handlerCountMinus} className="popup__icon-minus">-</span>
+            <button type="button" disabled={isDisabledDecrement} onClick={handlerCountMinus} className="popup__icon-minus">-</button>
             <p className="popup__bottom-count">{peopleCount}</p>
-            <span onClick={handlerCountPlus} className="popup__icon-plus">+</span>
+            <button type="button" disabled={isDisabledIncrement} onClick={handlerCountPlus} className="popup__icon-plus">+</button>
         </div>
     );
 };

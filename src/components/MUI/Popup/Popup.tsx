@@ -10,9 +10,10 @@ import PopupBtns from "./PopupBtns/PopupBtns";
 
 type IPopup = {
     setPopup: React.Dispatch<React.SetStateAction<boolean>>
+    id: string | undefined
 }
 
-const Popup = ({ setPopup }: IPopup) => {
+const Popup = ({ setPopup, id }: IPopup) => {
     const [tel, setTel] = useState<string>('');
     const [error, setError] = useState<string>('');
     const [peopleCount, setPeopleCount] = useState<number>(1);
@@ -31,10 +32,11 @@ const Popup = ({ setPopup }: IPopup) => {
     const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         const postData = {
-            "tourId": Date.now(),
+            "tourId": id ?? '1',
             "phoneNumber": tel,
             "peopleCount": peopleCount,
-            "comment": comment
+            "comment": comment,
+            "savePhone": true
         }
         await createPost(postData)
 
@@ -44,6 +46,17 @@ const Popup = ({ setPopup }: IPopup) => {
     }
 
     const isValidForm = tel && isValidPhoneNumber(tel)
+
+    const statusForm = ( status === QueryStatus.rejected || status === QueryStatus.fulfilled)
+        &&
+        <StatusForm
+            statusText={
+                status === QueryStatus.rejected ? "The tour can’t be booked" :
+                    status === QueryStatus.fulfilled ? "Your trip has been booked!" : ""
+            }
+            onClose={handlerPopup}
+         />
+
 
 
     return (
@@ -87,13 +100,7 @@ const Popup = ({ setPopup }: IPopup) => {
                     </>
                 }
                 {
-                    ( status === QueryStatus.rejected || status === QueryStatus.fulfilled) && <StatusForm
-                        statusText={
-                                status === QueryStatus.rejected ? "The tour can’t be booked" :
-                                    status === QueryStatus.fulfilled ? "Your trip has been booked!" : ""
-                        }
-                        onClose={handlerPopup}
-                    />
+                    statusForm
                 }
             </form>
         </div>

@@ -37,9 +37,10 @@ export interface IData{
 
 export interface IPostData{
     phoneNumber: string
-    tourId: number
+    tourId: string
     peopleCount: number
     comment: string
+    savePhone: boolean
 }
 
 export interface ILoginField{

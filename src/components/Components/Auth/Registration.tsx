@@ -1,35 +1,56 @@
 import React, { useState} from 'react';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {BiHomeSmile} from "react-icons/bi";
 import {useForm, SubmitHandler} from "react-hook-form";
 import InputMask from 'react-input-mask'
 import {IShippingFields} from "../../../interface/app.interface";
 import {useSignUpMutation} from "../../../store/api/api";
+import {useAppDispatch} from "../../../hooks/reduxHooks";
+import {login} from "../../../store/reducers/Auth";
 
 
 const Register = ( ) => {
 
     const [show, setShow] = useState<boolean>(false);
 
+    const dispatch = useAppDispatch()
+    const navigate = useNavigate()
 
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        reset,
+        formState: { errors }
+
     } = useForm<IShippingFields>({mode: "onChange"})
 
-    const [mutate] = useSignUpMutation();
+    const [mutate] = useSignUpMutation()
 
     const onSubmit: SubmitHandler<IShippingFields> = async (data) => {
-        console.log({...data})
+
         try {
-            const newData = {
-                ...data
+
+            const response = await mutate({...data});
+
+            if ("data" in response){
+
+                const newData = {
+                    ...response.data,
+                    accessToken: ''
+                }
+                dispatch(login(newData))
+                navigate('/signIn')
+
+            }else {
+                alert('Ошибка при регистрации, попробуйте еще раз!')
+                reset()
             }
-            const response = await mutate(newData);
-            console.log(response)
+
+
         } catch (error) {
-            console.error(error)
+            console.error(`Ошибка при регистрации: ${error}`)
+            reset()
+
         }
     };
     const handleShowPassword = () => {

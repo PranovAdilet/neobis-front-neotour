@@ -63,7 +63,7 @@
   }
   .description{
     &__bottom{
-      top: 28rem;
+      top: 27rem;
     }
     &__top{
       &-content{
@@ -71,6 +71,9 @@
         left: 5rem;
       }
     }
+  }
+  .swiper-pagination-images{
+    top: 455px !important;
   }
 }
 
@@ -90,6 +93,9 @@
     &__title{
       font-size: 3.5rem;
     }
+  }
+  .swiper-pagination-images{
+    top: 405px !important;
   }
 }
 
@@ -153,8 +159,6 @@
     }
 
   }
-
-
 }
 
 @media  (max-width: 530px ) {

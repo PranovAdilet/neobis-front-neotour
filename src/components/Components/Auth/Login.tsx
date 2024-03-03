@@ -1,32 +1,74 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {BiHomeSmile} from "react-icons/bi"
 import {useForm, SubmitHandler} from "react-hook-form";
 import {ILoginField} from "../../../interface/app.interface";
 import {useSignInMutation} from "../../../store/api/api";
+import {useAppDispatch} from "../../../hooks/reduxHooks";
+import {login, setIsAuth} from "../../../store/reducers/Auth";
+import {useEffect} from "react";
 
 
 const Login = () => {
 
-    const [mutate] = useSignInMutation();
+    const [mutate] = useSignInMutation()
+
+    const dispatch = useAppDispatch()
+    const navigate = useNavigate()
+
+    useEffect(() => {
+
+        const token = localStorage.getItem('accessToken');
+
+        if (token){
+            dispatch(setIsAuth(true))
+            navigate('/main')
+        }
+
+    }, [dispatch, navigate])
+
+
 
     const {
         register,
         handleSubmit,
+        reset,
         formState: {
             errors
         }
     } = useForm<ILoginField>()
 
+
     const onSubmit: SubmitHandler<ILoginField> = async (data) => {
-        console.log({...data})
+
         try {
-            const newData = {
-                ...data
+
+            const response = await mutate({...data})
+
+            if ('data' in response){
+
+                const dataUser = {
+                    email: response.data.email,
+                    firstName: response.data.email,
+                    lastName: response.data.email,
+                    phoneNumber: response.data.email,
+                    username: response.data.email,
+                    accessToken: '',
+                    imageUrl: response.data.email
+                }
+                localStorage.setItem('accessToken', response.data.accessToken)
+                dispatch(login(dataUser))
+                navigate('/main')
+
+            }else{
+                alert('Неверный логин или пароль')
+                reset()
             }
-            const response = await mutate(newData);
-            console.log(response)
+
+
         } catch (error) {
-            console.error(error)
+            console.error('Ошибка при отправке запроса:', error)
+            reset()
+            alert('Ошибка при аутентификации. Пожалуйста, попробуйте еще раз.')
         }
     }
 

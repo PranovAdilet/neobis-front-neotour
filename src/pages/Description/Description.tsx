@@ -8,17 +8,17 @@ import Reviews from "../../components/MUI/Reviews/Reviews";
 import SkeletonDescriptionCard from "../../components/MUI/Skeleton/SkeletonDescriptionCard/SkeletonDescriptionCard";
 
 
-const Description = () => {
+const Details = () => {
 
     useEffect(() => {
         window.scroll(0, 0)
     },[])
 
-    const params = useParams()
+    const {id} = useParams()
 
 
     const [popup, setPopup] = useState<boolean>(false)
-    const { data, isLoading, error } = useGetTourQuery(params.id ?? '1')
+    const { data, isLoading, error } = useGetTourQuery(id ?? '1')
 
     const handlerPopup = () => {
         setPopup((prev) => !prev)
@@ -32,7 +32,7 @@ const Description = () => {
                         isLoading && <SkeletonDescriptionCard count={1} classname={'Description'}/>
                     }
                         <SwiperImages images={data?.images}/>
-                        <Link to="/" className="description__top-content">
+                        <Link to="/main" className="description__top-content">
                             <button className="description__top-content-btn"></button>
                             <h3 className="description__top-content-text">Go back</h3>
                             <h3 className="description__top-content-text-mobile">Back</h3>
@@ -65,10 +65,10 @@ const Description = () => {
                 </div>
             </section>
             {
-                popup && <Popup setPopup={setPopup}/>
+                popup && <Popup id={id} setPopup={setPopup}/>
             }
         </>
     );
 };
 
-export default Description;
+export default Details;

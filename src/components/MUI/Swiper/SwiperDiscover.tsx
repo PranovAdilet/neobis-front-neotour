@@ -18,6 +18,7 @@ type IProps = {
 
 const SwiperDiscover = ({swiperRef, data, setIsBeginning, setIsEnd} : IProps) => {
 
+
     const handleSwiper = (swiper: SwiperType) => {
         swiperRef.current = swiper;
         setIsBeginning(swiper.isBeginning)
@@ -29,6 +30,7 @@ const SwiperDiscover = ({swiperRef, data, setIsBeginning, setIsEnd} : IProps) =>
         });
 
     }
+
     const params = {
         pagination: {
             el: '.swiper__pagination-bullets',
@@ -61,8 +63,6 @@ const SwiperDiscover = ({swiperRef, data, setIsBeginning, setIsEnd} : IProps) =>
             }
         }
     }
-
-
 
 
     return (

@@ -119,6 +119,12 @@
       background: #897CFF;
 
       cursor: pointer;
+
+      border: none;
+
+      &:disabled{
+        background: #B4B0DA;
+      }
     }
     &-minus{
       font-size: 2rem;
@@ -136,6 +142,13 @@
       background: #897CFF;
 
       cursor: pointer;
+
+      border: none;
+
+      &:disabled{
+        background: #B4B0DA;
+      }
+
     }
     &-close{
       font-size: 40px;
@@ -164,6 +177,7 @@
 
     cursor: pointer;
     &:disabled{
+      cursor: not-allowed;
       background: var(--Inactive, #B4B0DA);
     }
   }

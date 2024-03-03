@@ -1,37 +1,49 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {IUserLoginData} from "../../interface/app.interface";
+import {RootState} from "../index";
+
 
 
 interface IState {
-    user:  null,
+    user:  null | IUserLoginData,
     status: "loading" | "empty" | "done" | "error"
     error: string
-    token: string
+    isAuth: boolean
 }
 
 const initialState : IState = {
     user: null,
     status: "empty",
     error: '',
-    token: ''
+    isAuth: false
 }
 
 const UserSlice = createSlice({
     name: "userSLice",
     initialState,
     reducers: {
-        setCredentials: (state, action) => {
-            const {user, accessToken} = action.payload
-            state.user = user
-            state.token = accessToken
+        login: (state, action) => {
+            if (state.user){
+                state.user = {
+                    ...action.payload
+                }
+            }
         },
+
         logOut: (state) => {
             state.user = null
-            state.token = ''
+            state.isAuth = false
+            localStorage.removeItem('accessToken')
+        },
+        setIsAuth: (state, action) => {
+
+            state.isAuth = action.payload
         }
     }
 })
 
-export const {setCredentials, logOut} = UserSlice.actions
+export const { logOut, login, setIsAuth} = UserSlice.actions
 
 export default UserSlice.reducer
 
+export const selectUser = (state : RootState) => state.userSlice

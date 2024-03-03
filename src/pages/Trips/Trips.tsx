@@ -1,6 +1,7 @@
 import React from 'react';
 import trips from '../../assets/images/trips.png'
 import mobileImg from '../../assets/images/TripsImg.png'
+import AuthBoard from "../../components/MUI/AuthBoard/AuthBoard";
 
 
 const Trips = () => {
@@ -11,6 +12,7 @@ const Trips = () => {
 
     return (
         <section className="trips">
+            <AuthBoard/>
             <div className="container">
 
                 <img className="trips__img-mobile" src={mobileImg} alt=""/>

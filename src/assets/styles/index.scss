@@ -29,3 +29,27 @@ html{
   margin: 0 auto;
 }
 
+
+.logout{
+  position: absolute;
+  top: 5%;
+  right: 5%;
+
+  &__btn{
+
+    font-size: 1.2rem;
+    font-weight: 500;
+
+    padding: 7px 15px;
+    background: transparent;
+
+    border: 1px solid grey;
+
+    cursor: pointer;
+
+    border-radius: 7px;
+    &:hover{
+      background: #B4B0DA;
+    }
+  }
+}
