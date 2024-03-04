@@ -6,7 +6,7 @@ NeoTour is an optimized application designed for convenient tour booking. The ma
 
 My project is available at the following link: [https://neotour.netlify.app](https://neotour.netlify.app)
 
-## Technologies Used
+## Technologies
 
 The project utilizes the following technologies:
 
