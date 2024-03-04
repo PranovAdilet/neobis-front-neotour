@@ -1,14 +1,14 @@
 # NeoTour
 
-NeoTour - это оптимизированное приложение, разработанное для удобного бронирования туров. Основная цель - предоставление пользователям информации о доступных турах, используя систему категоризации и предоставляя рекомендации.
+NeoTour is an optimized application designed for convenient tour booking. The main goal is to provide users with information about available tours, using a categorization system and providing recommendations.
 
-## Деплой
+## Deployment
 
-Мой проект доступен по следующей ссылке: [https://neotour.netlify.app](https://neotour.netlify.app)
+My project is available at the following link: [https://neotour.netlify.app](https://neotour.netlify.app)
 
-## Используемые технологии
+## Technologies Used
 
-В проекте использовались следующие технологии:
+The project utilizes the following technologies:
 
 - React
 - Redux-Toolkit
@@ -18,27 +18,27 @@ NeoTour - это оптимизированное приложение, разр
 - Swiper
 - React-Phone-Number-Input
 
-## Установка
+## Installation
 
-1. **Установите Node.js**
+1. **Install Node.js**
 
-  Вы можете скачать его с официального сайта Node.js.
+   You can download it from the official Node.js website.
 
-2. **Склонируйте проект**
+2. **Clone the project**
 
-   Используйте git для клонирования вашего проекта на вашу машину.
+   Use git to clone your project to your machine.
 
-3. **Установите зависимости**
+3. **Install dependencies**
 
-   Перейдите в каталог проекта и установите необходимые зависимости с помощью npm:
+   Navigate to the project directory and install the necessary dependencies using npm:
 
    ```
    npm install @reduxjs/toolkit react react-dom react-input-mask react-phone-number-input react-redux react-router-dom sass swiper react-hook-form
    ```
 
-4. **Запустите проект**
+4. **Run the project**
 
-   После установки всех зависимостей вы можете запустить проект с помощью команды:
+After installing all dependencies, you can run the project using the command:
 
    ```
    npm start
